@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Purchase</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="add-item__form">
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="budgetItem.category" name="category">
+        <ion-select-option *ngFor="let category of categories">{{category}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="budgetItem.amount" name="amount"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime [(ngModel)]="budgetItem.date" name="date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="budgetItem.description" name="description"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button
+        fill="solid"
+        color="primary"
+        (click)="onSubmit()"
+        class="add-item__submit-button">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,11 @@
+@import "../../theme/variables.scss";
+
+.add-item__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.add-item__submit-button {
+  margin-right: $margin-md;
+}

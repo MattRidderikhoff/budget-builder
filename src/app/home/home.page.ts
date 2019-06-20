@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BudgetItem, SessionState } from '../session/session-state.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  budgetItems$: Observable<BudgetItem[]>;
 
-  constructor() {}
-
+  constructor(private sessionState: SessionState) {
+    this.budgetItems$ = sessionState.budgetItems;
+  }
 }
