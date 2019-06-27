@@ -3,15 +3,20 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export class BudgetItem {
-  category: string = undefined;
+  category: Category = undefined;
   amount: number = undefined;
   date: Date = undefined;
   description?: string;
 }
 
+export class Category {
+  name: string = undefined;
+  amount: number = undefined;
+  icon: string = undefined;
+}
 class Session {
   budgetItems: BudgetItem[] = [];
-
+  categories: Category[] = [{name: 'Groceries', icon: 'cart', amount: 1000}];
   // todo: fill in with other attributes
 }
 
@@ -19,19 +24,31 @@ class Session {
   providedIn: 'root'
 })
 export class SessionState {
-  session$ = new BehaviorSubject<Session>(new Session());
+  session = new BehaviorSubject<Session>(new Session());
 
   get budgetItems(): Observable<BudgetItem[]> {
-    const localSession = this.session$.asObservable();
+    const sessionObservable = this.session.asObservable();
 
-    return localSession.pipe(map(session => session.budgetItems));
+    return sessionObservable.pipe(map(session => session.budgetItems));
+  }
+  get categories(): Observable<Category[]> {
+    const sessionObservable = this.session.asObservable();
+
+    return sessionObservable.pipe(map(session => session.categories));
   }
 
 
   addBudgetItem(budgetItem: BudgetItem) {
-    const newSession = this.session$.getValue();
+    const newSession = this.session.getValue();
     newSession.budgetItems = [...newSession.budgetItems, budgetItem];
 
-    this.session$.next(newSession);
+    this.session.next(newSession);
+  }
+
+  addCategory(category: Category) {
+    const newSession = this.session.getValue();
+    newSession.categories = [...newSession.categories, category];
+
+    this.session.next(newSession);
   }
 }

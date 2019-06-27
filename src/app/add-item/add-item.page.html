@@ -12,7 +12,7 @@
     <ion-item>
       <ion-label>Category</ion-label>
       <ion-select [(ngModel)]="budgetItem.category" name="category">
-        <ion-select-option *ngFor="let category of categories">{{category}}</ion-select-option>
+        <ion-select-option *ngFor="let category of categories">{{category.name}}</ion-select-option>
       </ion-select>
     </ion-item>
 
