@@ -1,0 +1,11 @@
+@import "../../theme/variables.scss";
+
+.add-category__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.add-category__submit-button {
+  margin-right: $margin-md;
+}

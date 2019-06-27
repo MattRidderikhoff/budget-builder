@@ -13,8 +13,9 @@
   <ion-list>
     <ion-item *ngFor="let budgetItem of budgetItems$ | async">
       <ion-chip>
+        <ion-icon [name]="budgetItem.category.icon"></ion-icon>
         <ion-label>
-          {{ budgetItem.category }}
+          {{ budgetItem.category.name }}
         </ion-label>
       </ion-chip>
 

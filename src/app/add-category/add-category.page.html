@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="add-category__form">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" [(ngModel)]="category.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Icon</ion-label>
+
+      <ion-icon *ngIf="category.icon" [name]="category.icon" slot="end"></ion-icon>
+
+      <ion-select [(ngModel)]="category.icon" name="icon">
+        <ion-select-option *ngFor="let icon of icons">{{icon}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="category.amount" name="amount"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button
+          fill="solid"
+          color="primary"
+          (click)="onSubmit()"
+          class="add-category__submit-button">Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

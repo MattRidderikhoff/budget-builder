@@ -16,9 +16,9 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Categories',
+      url: '/add-category',
+      icon: 'folder-open'
     }
   ];
 
