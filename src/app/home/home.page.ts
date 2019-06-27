@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { BudgetItem, SessionState } from '../session/session-state.service';
+import { SessionState } from '../session/session-state.service';
 import { Observable } from 'rxjs';
+import { BudgetItem } from '../session/session-state.typings';
 
 @Component({
   selector: 'app-home',

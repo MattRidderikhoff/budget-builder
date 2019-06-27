@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BudgetItem, SessionState, Category } from '../session/session-state.service';
+import { SessionState } from '../session/session-state.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { BudgetItem, Category } from '../session/session-state.typings';
 
 @Component({
   selector: 'app-add-item',
@@ -11,21 +12,26 @@ import { Observable } from 'rxjs';
 export class AddItemPage implements OnInit {
   categories$: Observable<Category[]>;
   categories: Category[];
+
+  categoryName;
   budgetItem: BudgetItem = new BudgetItem();
 
   constructor(private sessionState: SessionState, private router: Router) {}
 
   ngOnInit() {
     this.categories$ = this.sessionState.categories;
+
     this.categories$.subscribe((categories) => {
       this.categories = categories;
     });
   }
+
   onSubmit() {
-    console.log(this.budgetItem);
+    this.budgetItem.category = this.sessionState.getCategory(this.categoryName);
+
     this.sessionState.addBudgetItem(this.budgetItem);
     this.budgetItem = new BudgetItem();
 
     this.router.navigateByUrl('/home');
   }
-  }
+}
