@@ -17,6 +17,6 @@ export class AddCategoryPage {
     this.sessionState.addCategory(this.category);
     this.category = new Category();
 
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/members/home');
   }
 }

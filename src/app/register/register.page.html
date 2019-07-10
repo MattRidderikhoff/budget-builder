@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button routerLink="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Create Account</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content fullscreen>
+      <form onsubmit="processForm(event)">
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <ion-item>
+            <ion-label position="stacked">Username <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Confirm Password <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="password" [(ngModel)]="passwordCheck" name="passwordCheck"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Monthly Budget </ion-label>
+            <ion-input type="number" [(ngModel)]="budgetAmount" name="budgetAmount"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Notes</ion-label>
+            <ion-textarea [(ngModel)]="notes" name="notes"></ion-textarea>
+          </ion-item>
+        </ion-list>
+
+        <div class="ion-padding">
+          <ion-button expand="block" class="ion-no-margin" (click)="register()">Create Account </ion-button>
+        </div>
+
+      </form>
+    </ion-content>
+</ion-content>
