@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {SessionState} from './session/session-state.service';
+import {IonicStorageModule} from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import {SessionState} from './session/session-state.service';
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,

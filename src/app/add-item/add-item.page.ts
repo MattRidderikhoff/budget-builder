@@ -32,6 +32,6 @@ export class AddItemPage implements OnInit {
     this.sessionState.addBudgetItem(this.budgetItem);
     this.budgetItem = new BudgetItem();
 
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/members/home');
   }
 }
